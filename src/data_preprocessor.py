@@ -4,9 +4,10 @@ import unicodedata
 import string
 from bs4 import BeautifulSoup
 from nltk.corpus import stopwords
-from string import digits
 import warnings
-warnings.filterwarnings('ignore')
+
+warnings.filterwarnings("ignore")
+
 
 def strip_html_tags(text: str):
     try:
@@ -27,6 +28,7 @@ def remove_accented_chars(text: str):
     except Exception as e:
         return text
     return text
+
 
 def remove_url(statement: str):
     patterns = [r"http\S+", r"www\S+"]
@@ -50,6 +52,7 @@ def strip_punctuation(statement: str):
 def lower_case_statement(statement: str):
     return statement.lower()
 
+
 def remove_stop_words(statement: str):
     stop_words = set(stopwords.words("english"))
     word_tokens = statement.split()
@@ -61,6 +64,7 @@ def remove_special_characters(text: str, remove_digits=False):
     pattern = r"[^a-zA-z0-9\s]" if not remove_digits else r"[^a-zA-z\s]"
     text = re.sub(pattern, "", text)
     return text
+
 
 def process(statement):
     try:

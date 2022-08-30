@@ -1,0 +1,38 @@
+Tasks:
+1. create an end-point to store movie data in postgres db
+	*Movie Service
+		1. create movieDB in postgres
+		2. write db connection code
+		3. write text preprocessing module
+		4. write a function to preprocess and upload CSV data in movieDB
+2. create an end-point to get movie recommendations using cosine similarity
+	*Movie Recommendation Service
+		1. read data from postgres
+		2. combine features and compute cosine similarity matrix
+		3. recommend top 10 movies
+3. create an end-point to get movie reviews from IMDB databse and perform prediction using sentiment analysis
+	*Movie Review Prediction Service
+		1. create sentiment analysis model on reviews dataset (Positive or Negative)
+			1. data preprocessing
+			2. use TF-IDF vectorizer
+			3. use Naive Bayes Classifier
+			4. save vectorizer and classifier in a pickle file
+		2. External API: get movie reviews using movie title from IMDB database
+		3. scrape data and get reviews and send the review for prediction
+TMDB_API_KEY = 65e09a75c4649f764fbbea75f0c2d2c1
+			   65e09a75c4649f764fbbea75f0c2d2c1
+
+Sample APIs
+https://api.themoviedb.org/3/search/movie?api_key=65e09a75c4649f764fbbea75f0c2d2c1&query=Dilwale+Dulhania+Le+Jayenge
+https://api.themoviedb.org/3/movie/19404?api_key=65e09a75c4649f764fbbea75f0c2d2c1
+https://www.imdb.com/title/tt0112870/reviews?ref_=tt_ov_rt
+
+NLTK download
+import nltk
+nltk,download('all')
+
+Formatter:
+black code formatter
+conda command
+	conda install --name base black -y
+	
